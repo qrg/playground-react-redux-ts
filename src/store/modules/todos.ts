@@ -17,7 +17,7 @@ export const initialState: ITodosState = {
   newItem: ''
 };
 
-export const changeTodo: ActionCreator<IAction<ITodosState>> = (value) => ({
+export const changeTodo: ActionCreator<IAction<ITodosState>> = value => ({
   type: ActionType.CHANGE_TODO,
   payload: value
 });

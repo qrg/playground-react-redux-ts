@@ -1,5 +1,5 @@
 import React, { FormEvent } from 'react';
-import {connect, MapDispatchToPropsFunction, MapStateToPropsFactory } from 'react-redux';
+import { connect, MapDispatchToPropsFunction } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import Form from '../components/Form';
@@ -9,7 +9,9 @@ import { changeTodo, submitTodo } from '../store/modules/todos';
 
 const mapStateToProps = ({ todos }: IRootState) => todos;
 
-const mapDispatchToProps: MapDispatchToPropsFunction<any, any> = (dispatch: Dispatch) => {
+const mapDispatchToProps: MapDispatchToPropsFunction<any, any> = (
+  dispatch: Dispatch
+) => {
   return {
     onChange: (event: FormEvent<HTMLInputElement>) => {
       event.preventDefault();
@@ -23,4 +25,7 @@ const mapDispatchToProps: MapDispatchToPropsFunction<any, any> = (dispatch: Disp
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Form);

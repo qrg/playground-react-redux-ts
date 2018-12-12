@@ -4,9 +4,9 @@ import FormContainer from './containers/FormContainer';
 
 const App = () => {
   return (
-      <Fragment>
-        <FormContainer />
-      </Fragment>
+    <Fragment>
+      <FormContainer />
+    </Fragment>
   );
 };
 
