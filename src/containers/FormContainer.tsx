@@ -17,7 +17,8 @@ const mapDispatchToProps: MapDispatchToPropsFunction<any, any> = (dispatch: Disp
     },
     onSubmit: (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      dispatch(submitTodo())
+      dispatch(submitTodo());
+      event.currentTarget.reset();
     }
   };
 };
