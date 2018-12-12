@@ -37,6 +37,9 @@ const reducer: Reducer<ITodosState, IAction<string>> = (
         newItem: action.payload
       };
     case ActionType.SUBMIT_TODO:
+      if (!state.newItem.trim()) {
+        return state;
+      }
       return {
         ...state,
         list: [
