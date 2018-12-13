@@ -4,10 +4,11 @@ import { Dispatch } from 'redux';
 
 import Form from '../components/Form';
 import { IRootState } from '../store/createStore';
-
 import { changeTodo, submitTodo } from '../store/modules/todos';
 
-const mapStateToProps = ({ todos }: IRootState) => todos;
+const mapStateToProps = ({ todos }: IRootState) => ({
+  value: todos.inputValue
+});
 
 const mapDispatchToProps: MapDispatchToPropsFunction<any, any> = (
   dispatch: Dispatch

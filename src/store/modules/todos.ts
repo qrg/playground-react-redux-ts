@@ -2,19 +2,19 @@ import { ActionCreator, Reducer } from 'redux';
 
 import { ActionType, IAction, IActionWithoutPayload } from './index';
 
-interface ITodoState {
+export interface ITodoState {
   label: string;
   done: boolean;
 }
 
 export interface ITodosState {
   list: ITodoState[];
-  newItem: string;
+  inputValue: string;
 }
 
 export const initialState: ITodosState = {
   list: [{ label: 'Sample', done: false }],
-  newItem: ''
+  inputValue: ''
 };
 
 export const changeTodo: ActionCreator<IAction<ITodosState>> = value => ({
@@ -34,10 +34,10 @@ const reducer: Reducer<ITodosState, IAction<string>> = (
     case ActionType.CHANGE_TODO:
       return {
         ...state,
-        newItem: action.payload
+        inputValue: action.payload
       };
     case ActionType.SUBMIT_TODO:
-      if (!state.newItem.trim()) {
+      if (!state.inputValue.trim()) {
         return state;
       }
       return {
@@ -45,11 +45,11 @@ const reducer: Reducer<ITodosState, IAction<string>> = (
         list: [
           ...state.list,
           {
-            label: state.newItem,
+            label: state.inputValue,
             done: false
           }
         ],
-        newItem: ''
+        inputValue: ''
       };
     default:
       return state;

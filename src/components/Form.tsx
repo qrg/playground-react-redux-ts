@@ -1,12 +1,16 @@
-import React, { SyntheticEvent } from 'react';
+import React, { FunctionComponent, FormEvent } from 'react';
 
 export interface IProps {
-  onChange: (event: SyntheticEvent) => void;
-  onSubmit: (event: SyntheticEvent) => void;
+  onChange: (event: FormEvent) => void;
+  onSubmit: (event: FormEvent) => void;
   value: string;
 }
 
-const Form = ({ onChange, onSubmit, value }: IProps) => {
+const Form: FunctionComponent<IProps> = ({
+  onChange,
+  onSubmit,
+  value
+}: IProps) => {
   return (
     <form onSubmit={onSubmit}>
       <input onChange={onChange} value={value} type="text" />
